@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-size: cover;
+      background-image: url('istockphoto-1191251531-612x612.JPG'); /* background */
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 300px;
+    }
+
+    h2 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 40px;
+      color: #e63946;
+      margin-bottom: 15px;
+      white-space: pre-wrap;
+      overflow: hidden;
+      
+    }
+
+    p {
+      font-size: 14px;
+      color: #333;
+      text-align: justify;
+      line-height: 1.5em;
+      margin-bottom: 15px;
+      white-space: pre-wrap;
+      overflow: hidden;
+      
+    }
+
+    .footer-text {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 30px;
+      color: #e63946;
+      margin-bottom: 20px;
+      white-space: pre-wrap;
+      overflow: hidden;
+      border-right: 2px solid #e63946;
+    }
+
+    button {
+      margin-top: 10px;
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #d62828;
+    }
+  </style>
+</head>
+<body>
+    <audio controls autoplay loop hidden >
+        <source src="Earl Agustin - Pag Ibig ng Ikaw at Ako (Lyrics).mp3">
+    </audio>
+
+  <div class="container">
+    <h2 id="header"></h2>
+    <p id="message"></p>
+    <div class="footer-text" id="footer"></div>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <script>
+    // Text contents
+    const headerText = "Read This and I hope u like it...";
+    const messageText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Sed diam mauris, aliquam vel augue sagittis, lobortis sollicitudin tellus. 
+Sed vitae venenatis metus. Sed pretium, odio in varius tincidunt, libero 
+diam malesuada ex, et sodales urna quam ac enim.
+
+Suspendisse vel ornare nibh. Cras iaculis purus eleifend, porttitor ex ut, 
+consequat sapien. Quisque a suscipit lectus, id imperdiet tortor. 
+Cras facilisis leo et dolor hendrerit.`;
+    const footerText = "I wanna ask you something ❤️";
+
+    // Typing function
+    function typeWriter(element, text, speed, callback) {
+      let i = 0;
+      function typing() {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(typing, speed);
+        } else {
+          if (callback) callback();
+        }
+      }
+      typing();
+    }
+
+    // Run typing sequence
+    window.onload = () => {
+      typeWriter(document.getElementById("header"), headerText, 120, () => {
+        typeWriter(document.getElementById("message"), messageText, 150, () => {
+          typeWriter(document.getElementById("footer"), footerText, 90);
+        });
+      });
+    };
+
+    function nextPage() {
+      window.location.href = "asking.html"; // change link to your next page
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+

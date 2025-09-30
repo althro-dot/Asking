@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Date Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-size: cover;
+      background-image: url('istockphoto-1191251531-612x612.JPG'); /* optional background */
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 300px;
+    }
+
+    /* Typewriter effect */
+    .typewriter {
+      margin-bottom: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid black;
+      width: 0;
+      animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+      font-family: 'Brush Script MT', cursive;
+      font-size: 24px;
+      color: #e63946;
+      margin: 0;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 280px }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    h1 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 40px;
+      color: #e63946;
+      margin: 10px 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #e63946;
+      border-radius: 8px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin: 5px 0;
+      display: none;
+    }
+
+    button {
+      margin-top: 10px;
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #d62828;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="typewriter">Hi baby this is for you...</h2>
+
+    <h1>Enter the date</h1>
+    
+    <input type="text" id="dateInput" placeholder="mm/dd/yyyy">
+    <p class="error" id="errorMsg">wrong date I'm sad:(</p>
+    
+    <button onclick="checkDate()">Enter</button>
+  </div>
+
+  <script>
+    function checkDate() {
+      const input = document.getElementById("dateInput").value.trim();
+      const error = document.getElementById("errorMsg");
+      const correctDate = "10/03/2025"; // put your correct date here
+
+      if (input === correctDate) {
+        error.style.display = "none";
+        // Redirect to next page
+        window.location.href = "message.html"; 
+      } else {
+        error.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
