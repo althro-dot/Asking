@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-size: cover;
+      background-image: url('istockphoto-1191251531-612x612.JPG'); /* background */
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 300px;
+    }
+
+    h2 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 40px;
+      color: #e63946;
+      margin-bottom: 15px;
+      white-space: pre-wrap;
+      overflow: hidden;
+      
+    }
+
+    p {
+      font-size: 14px;
+      color: #333;
+      text-align: justify;
+      line-height: 1.5em;
+      margin-bottom: 15px;
+      white-space: pre-wrap;
+      overflow: hidden;
+      
+    }
+
+    .footer-text {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 30px;
+      color: #e63946;
+      margin-bottom: 20px;
+      white-space: pre-wrap;
+      overflow: hidden;
+      
+    }
+
+    button {
+      margin-top: 10px;
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #d62828;
+    }
+  </style>
+</head>
+<body>
+    <audio controls autoplay loop hidden >
+        <source src="Earl Agustin - Pag Ibig ng Ikaw at Ako (Lyrics).mp3">
+    </audio>
+
+  <div class="container">
+    <h2 id="header"></h2>
+    <p id="message"></p>
+    <div class="footer-text" id="footer"></div>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <script>
+    // Text contents
+    const headerText = "Read This and I hope u like it...";
+    const messageText = `Hi Jo, My heart has been whispering something to me, and I think it's finally time to tell you.
+
+I don't even know where to begin because words often fall short when it comes to expressing what you mean to me... I didn't expect you to come to my life. It's like there I was, an empty piece of a shell
+just mindin' my own world without even knowin' 
+what love and life were all about 
+Then you came 
+You brought me out of the shell 
+You gave the world to me and before I knew 
+There I was, so in love with youuu.
+
+I love your personality. Every time you smile, I just want to see it every day. Your vibe feels like I see myself in you, and I can never forget our dates and late-night walks filled with laughter. I hope our love will be kakaiba just like the song I dedicated here.
+I hope our love will last forever.
+
+Never in my life have I been more sure 
+You're everything I wanted.
+I love you baby🫶`;
+    const footerText = "I wanna ask you something ❤️";
+
+    // Typing function
+    function typeWriter(element, text, speed, callback) {
+      let i = 0;
+      function typing() {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(typing, speed);
+        } else {
+          if (callback) callback();
+        }
+      }
+      typing();
+    }
+
+    // Run typing sequence
+    window.onload = () => {
+      typeWriter(document.getElementById("header"), headerText, 120, () => {
+        typeWriter(document.getElementById("message"), messageText, 130, () => {
+          typeWriter(document.getElementById("footer"), footerText, 80);
+        });
+      });
+    };
+
+    function nextPage() {
+      window.location.href = "asking.html"; 
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
